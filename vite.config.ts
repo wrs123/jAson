@@ -22,7 +22,7 @@ function loadEnvPlugin(): Plugin {
       const result = loadEnv(env.mode, root)
       // Remove the vite-plugin-electron injected env.
       delete result.VITE_DEV_SERVER_URL
-      config.esbuild ??= {}
+      config.esbuild = {}
       config.esbuild.define = {
         ...config.esbuild.define,
         ...Object.fromEntries(Object.entries(result)
@@ -91,4 +91,14 @@ export default defineConfig({
     }
   })() : undefined,
   clearScreen: false,
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // 两种方式都可以
+        additionalData: '@import "./src/assets/scss/global.scss";'
+        // additionalData: '@use "@/assets/scss/global.scss" as *;'
+      }
+    }
+  }
+ 
 })

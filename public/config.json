@@ -1,0 +1,47 @@
+{
+    "name": "tree",
+    "children": [
+        {
+            "name": "tree",
+            "children": [
+                {
+                    "name": "item1"
+                }
+            ],
+            "collapsed": false
+            
+        },
+        {
+            "name": "tree",
+            "children": [
+                {
+                    "name": "item1"
+                }
+            ],
+            "collapsed": false
+            
+        },
+        {
+            "name": "tree",
+            "children": [
+                {
+                    "name": "item1"
+                }
+            ],
+            "collapsed": false
+            
+        },
+        {
+            "name": "tree",
+            "children": [
+                {
+                    "name": "item1"
+                }
+            ],
+            "collapsed": false
+            
+        }
+    ],
+    "collapsed": false
+    
+}

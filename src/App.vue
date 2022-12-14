@@ -1,30 +1,30 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+
+import * as echarts from "echarts";
+import { provide } from "vue";
+provide("echarts", echarts);
+
+import DrawPage from './page/draw-page/index.vue'
+
 </script>
 
 <template>
-  <div class="logo-box">
-    <img class="logo vite" src="./assets/vite.svg" >
-    <img class="logo electron" src="./assets/electron.svg" >
-    <img class="logo vue" src="./assets/vue.svg" >
-  </div>
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
-  <div class="static-public">
-    Place static files into the <code>/public</code> folder
-    <img style="width:77px;" :src="'./node.png'" >
-  </div>
+  <DrawPage></DrawPage>
 </template>
 
 <style>
+
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  height: 100vh;
+  width: 100vw;
 }
 
 .logo-box {
