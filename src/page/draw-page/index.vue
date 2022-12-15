@@ -4,7 +4,7 @@
   import axios from 'axios'
 
   let echarts = inject("echarts");
-  let jsonMap = {}
+  let jsonMap:Object = {}
 
   onMounted(async () => {
     await getJson()
@@ -13,9 +13,8 @@
 
   const getJson = async() => {
     const res = await axios.get('./config.json')
-    let json = res.data;
-    console.log(json)
-    jsonMap = json
+    jsonMap = res.data;
+    console.log(jsonMap)
   }
 
   /**
@@ -34,31 +33,36 @@
         {
           type: 'tree',
           data: [jsonMap],
-          roam: 'scale',
+          roam: true,
           top: '1%',
           left: '7%',
           bottom: '1%',
           right: '20%',
           symbolSize: 7,
+          symbol: 'none',
           label: {
-            position: 'left',
             verticalAlign: 'middle',
-            align: 'right',
-            fontSize: 9
+            backgroundColor: '#fff',
+            fontSize: 9,
+            borderWidth: 1,
+            borderColor: '#333',
+            padding: [5, 10, 5, 10],
+            borderRadius: 10,
           },
           leaves: {
             label: {
-              position: 'right',
               verticalAlign: 'middle',
-              align: 'left'
             }
           },
           itemStyle: {
             shadowColor: 'rgba(0, 0, 0, 0.5)',
             shadowBlur: 10
           },
+          lineStyle: {
+
+          },
           emphasis: {
-            focus: 'descendant'
+            focus: 'none'
           },
           expandAndCollapse: true,
           animationDuration: 550,
