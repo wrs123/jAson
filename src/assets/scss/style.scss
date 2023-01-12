@@ -1,0 +1,20 @@
+@import '../theme/var.scss';
+
+#app{
+  background: #000;
+}
+
+.content-container{
+  background-color: $--main-background-color;
+  color: $--text-color;
+  // box-shadow: 0 0 10px rgba(0,0,0,.4)
+}
+
+.button-primary{
+  background-color: $--button-primary-color;
+  cursor: pointer;
+
+  &:active{
+    background-color: $--button-primary-active-color;
+  }
+}

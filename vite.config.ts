@@ -95,7 +95,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         // 两种方式都可以
-        additionalData: '@import "./src/assets/scss/global.scss";'
+        additionalData: '@import "./src/assets/scss/global.scss"; @import "./src/assets/theme/var.scss";'
         // additionalData: '@use "@/assets/scss/global.scss" as *;'
       }
     }

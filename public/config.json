@@ -1,47 +1,116 @@
-{
-    "name": "tree",
-    "children": [
-        {
-            "name": "tree",
-            "children": [
-                {
-                    "name": "item1"
-                }
-            ],
-            "collapsed": false
-            
+{   
+    "$dirctMap": {
+        "assess": {
+            "order": {
+                "1569666009512701952": "yingFeng",
+                "1569666511113711616": "jingShen",
+                "1569666742236639232": "tengTong",
+                "1569666742236639233": "xinFei",
+                "1569666742236639231": "shuiMian"
+            },
+            "assessStatus": {
+                "value": {
+                    "0": "UNDO",
+                    "1": "DOING",
+                    "2": "DONE",
+                    "3": "FINISH",
+                    "4": "STOP"
+                },
+                "commit": "评估状态枚举类"
+            },
+            "resultSearch": {
+                "value": ["未执行","执行中","已执行", "已完成", "已终止"],
+                "commit": "评估结果搜索select用"
+            },
+            "result": {
+                "value": ["未达标","达标","无结果"],
+                "commit": "评估结果"
+            },
+            "atPublishFlag": {
+                "value": ["暂存", "已发布"],
+                "color": ["font-color-warn", "font-color-success"],
+                "commit": "评估模板发布状态"
+            }
         },
-        {
-            "name": "tree",
-            "children": [
-                {
-                    "name": "item1"
-                }
-            ],
-            "collapsed": false
-            
+        "hospital": {
+            "inOutStatus": {
+                "value": ["已出院", "在院"],
+                "commit": "患者在院状态"
+            } 
         },
-        {
-            "name": "tree",
-            "children": [
-                {
-                    "name": "item1"
-                }
-            ],
-            "collapsed": false
-            
+        "hospitalId": {
+            "value": "110000",
+            "commit": "医院id"
         },
-        {
-            "name": "tree",
-            "children": [
-                {
-                    "name": "item1"
+        "device": {
+            "bindStatus": {
+                "value":["未绑定", "已绑定"],
+                "commit": "设备绑定状态 0未绑定 1已绑定"
+            },
+            "importType": {
+                "value": ["旧数据", "新数据"],
+                "commit": "导入数据的状态 0已存在旧数据 1新数据"
+            }
+        },
+        "edu": {
+            "eduStatus": {
+                "value": ["未发布", "已发布"],
+                "commit": "宣教状态 0未发布 1已发布"
+            }
+        },
+        "message": {
+            "mrReadStatus": {
+                "value": ["未读", "已读"],
+                "commit": "阅读状态:0 未读，1已读"
+            },
+            "messageTemplateStatus": {
+                "value": ["暂存", "已发布"],
+                "commit": "消息模板状态 0未发布 1已发布"
+            },
+            "nutdCode": {
+                "other": {
+                    "value": 0,
+                    "commit": "其他"
+                },
+                "patient": {
+                    "value": 1,
+                    "commit": "患者"
+                },
+                "doctor": {
+                    "value": 2,
+                    "commit": "医生"
+                },
+                "nurse": {
+                    "value": 3,
+                    "commit": "护士"
                 }
-            ],
-            "collapsed": false
-            
+            }
         }
-    ],
-    "collapsed": false
-    
+        
+    },
+    "$textList": [],
+    "$config": {
+        "timer": {
+            "value": 10000,
+            "commit": "大屏数据自动刷新间隔（ms）"
+        },
+        "page": {
+            "pageSize": {
+                "value": "10",
+                "commit": "表格分页条数"
+            }
+        }
+    },
+    "$routeHost": "http://zyys-ycc.dev.hosiot.com:8081/eraspc/#",
+    "$mainHost": "",
+    "$uploadUrl": "/api/basis/upload", 
+    "$socketUrl": "ws://10.1.11.58:8082",
+    "$mainHost1": "",
+    "$uploadUrl1": "/api/basis/upload", 
+    "$mainAppId": "eras_main_px",
+    "$eduAppId": "eras_main_px",
+    "$sleepAppId": "eras_sleep_px",
+    "$iotAppId": "eras_iot_px",
+    "$messageAppId": "eras_msg_px"
+
 }

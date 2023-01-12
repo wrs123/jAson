@@ -3,66 +3,85 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 
 import * as echarts from "echarts";
-import { provide } from "vue";
+import { provide, watch } from "vue";
+import { useRouter} from 'vue-router'
 provide("echarts", echarts);
+const router = useRouter()
 
-import DrawPage from './page/draw-page/index.vue'
 
+watch(() => router, (newValue, oldValue) => {
+	console.log(newValue, oldValue)
+}, { deep: true })
 </script>
 
 <template>
-  <DrawPage></DrawPage>
+  <router-view v-slot="{ Component }">
+    <transition name="route-anima" mode="out-in">
+      <component :is="Component" />
+    </transition>
+  </router-view>
+  
 </template>
 
-<style>
+<style lang="scss" >
+@import './assets/scss/style.scss';
+
+*{
+  transition: all .3s;
+}
 
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+  'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  // -webkit-font-smoothing: antialiased;
+  // -moz-osx-font-smoothing: grayscale;
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
+  font-weight: lighter;
 }
 
-.logo-box {
-  display: flex;
-  width: 100%;
-  justify-content: center;
+body{
+  margin: 0;
 }
 
-.static-public {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.route-anima-enter-from{
+  transform: translateX(5%);
+  opacity: 0;
 }
 
-.static-public code {
-  background-color: #eee;
-  padding: 2px 4px;
-  margin: 0 4px;
-  border-radius: 4px;
-  color: #304455;
+.route-anima-leave-from{
+  transform: translateX(0);
+  opacity: 1;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: 0.75s;
+.route-anima-leave-to {
+  transform: translateX(-5%);
+  opacity: 0;
 }
 
-.logo.vite:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.route-anima-enter-to {
+  transform: translateX(0);
+  opacity: 1;
 }
 
-.logo.electron:hover {
-  filter: drop-shadow(0 0 2em #9FEAF9);
+
+
+.route-anima-enter-active{
+  transition: all .4s;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+.route-anima-leave-active{
+  transition: all .3s;
+  // transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
+
+
+
+
+
+
 </style>
