@@ -27,7 +27,7 @@
     "electron-builder": "^23.3.3",
     "node-sass": "6.0.0",
     "sass": "^1.56.2",
-    "sass-loader": "^10.2.1",
+    "sass-loader": "^13.2.0",
     "scss": "^0.2.4",
     "typescript": "^4.8.4",
     "vite": "^3.2.2",
